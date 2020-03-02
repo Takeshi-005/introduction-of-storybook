@@ -6,25 +6,29 @@ import styled from 'styled-components'
 //
 // @ Types
 interface Props {
+  /** 表示するテキスト */
   text: string;
+  /** styled-components */
   className?:string;
   handleClick?: (e:React.MouseEvent) => void;
 }
 
-
 // ______________________________________________________
 //
 // @ View
-const Button:React.FC<Props> = (props) => (
-  <button
+const Button = (props:Props) => (
+  <StyledButton
     className={props.className}
     onClick={props.handleClick}
   >
     {props.text}
-  </button>
+  </StyledButton>
 )
 
-export default styled(Button)`
+// ______________________________________________________
+//
+// @ StyledView
+const StyledButton = styled.button`
   background-color: rgb(234, 53, 45);
   color: rgb(255, 255, 255);
   display: block;
@@ -36,3 +40,6 @@ export default styled(Button)`
   border-radius: 4px;
   padding: 8px 10px;
 `;
+
+
+export default Button;
